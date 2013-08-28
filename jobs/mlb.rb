@@ -5,10 +5,8 @@ require 'open-uri'
 require 'json'
 
 
-# SCHEDULER.every '5m', :first_in => 0 do
+SCHEDULER.every '1s', :first_in => 0 do
   doc = Nokogiri::HTML(open('http://www.baseball-reference.com'))
-
-  al_standings = []
 
   s = doc.css('#div_AL_standings').text
 
@@ -31,17 +29,15 @@ require 'json'
 
 
   al_east_pre = al_east.each { |f| f.delete(f[1]) }
-  al_e_final = al_east_pre.map { |e| {'al_east' => e} }
+  al_e_final = al_east_pre.first  #.map { |e| {'al_east' => e} }
   al_cent_pre = al_cent.each { |f| f.delete(f[1]) }
-  al_c_final = al_cent_pre.map { |e| {'al_east' => e} }
+  al_c_final = al_cent_pre.map { |e| {'al_cent' => e} }
   al_west_pre = al_west.each { |f| f.delete(f[1]) }
-  al_w_final = al_west_pre.map { |e| {'al_east' => e} }
-
-  pry.binding
+  al_w_final = al_west_pre.map { |e| {'al_west' => e} }
 
   send_event('mlb', {
-    al_east: al_e_final.to_json,
-    al_cent: al_c_final.to_json,
-    al_west: al_w_final.to_json
-    })
-# end
+    al_east: al_e_final[0],
+    al_cent: al_c_final,
+    al_west: al_w_final
+  })
+end
