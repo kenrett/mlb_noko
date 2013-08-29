@@ -1,12 +1,12 @@
-<img class="logo" src="http://mlb.mlb.com/images/icons/mlb_logo.gif">
+<!-- <img class="logo" src="http://mlb.mlb.com/images/icons/mlb_logo.gif">
 
 <h1 class="title" data-bind="title"></h1>
 
-<ul class="list-nostyle">
-  <li>
-    <span class="column">AL East</span>
-    <span class="value" data-bind="al_east | raw"></span>
-  </li>
+<table class="standings">
+  <tr>
+    <th>AL East</th><br>
+    <span class="value" data-bind="team | raw"></span>
+  </tr>
   <li>
     <span class="column">AL Central</span>
     <span class="value" data-bind="al_cent | raw"></span>
@@ -15,4 +15,25 @@
     <span class="column">AL West</span>
     <span class="value" data-bind="al_west | raw"></span>
   </li>
-</ul>
+</ul> -->
+
+<img class="logo" src="http://mlb.mlb.com/images/icons/mlb_logo.gif">
+
+<h1 class="title">MLB Standings</h1>
+<table class="AL_standings">
+  <tr>
+    <th>Team</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>GB</th>
+  </tr>
+  <tr data-class="team" data-foreach-item="value" class="team">
+    <td class="team" data-bind="item.team"></td>
+  <tr data-class="wins" data-foreach-item="wins" class="wins">  
+    <td class="wins" data-bind="item.wins"></td>
+  <tr data-class="losess" data-foreach-item="losses" class="losess">  
+    <td class="losses" data-bind="item.losses"></td>
+  <tr data-class="gb" data-foreach-item="gb" class="gb">  
+    <td class="gb" data-bind="item.gb"></td>
+  </tr>
+</table>

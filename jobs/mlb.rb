@@ -5,7 +5,7 @@ require 'open-uri'
 require 'json'
 
 
-SCHEDULER.every '1s', :first_in => 0 do
+SCHEDULER.every '4s', :first_in => 0 do
   doc = Nokogiri::HTML(open('http://www.baseball-reference.com'))
 
   s = doc.css('#div_AL_standings').text
@@ -29,15 +29,29 @@ SCHEDULER.every '1s', :first_in => 0 do
 
 
   al_east_pre = al_east.each { |f| f.delete(f[1]) }
-  al_e_final = al_east_pre.first  #.map { |e| {'al_east' => e} }
+  n = al_east_pre.transpose
+  team = n[0].join(" ")
+  wins = n[1].join(" ")
+  losses = n[2].join(" ")
+  gb = n[3].join(" ")
+
+  # binding.pry
+
+
   al_cent_pre = al_cent.each { |f| f.delete(f[1]) }
-  al_c_final = al_cent_pre.map { |e| {'al_cent' => e} }
+  al_c_final = al_cent_pre.join(",")
   al_west_pre = al_west.each { |f| f.delete(f[1]) }
-  al_w_final = al_west_pre.map { |e| {'al_west' => e} }
+  al_w_final = al_west_pre.join(",")
+  # al_w_final = al_west_pre.map { |e| {'al_west' => e} }
+
 
   send_event('mlb', {
-    al_east: al_e_final[0],
-    al_cent: al_c_final,
-    al_west: al_w_final
+    team: n[0],
+    wins: n[1],
+    losses: n[2],
+    gb: n[3]
+    #,
+    # al_cent: al_c_final,
+    # al_west: al_w_final
   })
 end
