@@ -1,9 +1,9 @@
 ---
 convergence: |+
-  data: {"points":[{"x":4414,"y":3},{"x":4415,"y":44},{"x":4416,"y":24},{"x":4417,"y":22},{"x":4418,"y":19},{"x":4419,"y":20},{"x":4420,"y":33},{"x":4421,"y":47},{"x":4422,"y":48},{"x":4423,"y":20}],"id":"convergence","updatedAt":1377748520}
+  data: {"points":[{"x":443,"y":28},{"x":444,"y":33},{"x":445,"y":0},{"x":446,"y":16},{"x":447,"y":41},{"x":448,"y":33},{"x":449,"y":26},{"x":450,"y":43},{"x":451,"y":19},{"x":452,"y":3}],"id":"convergence","updatedAt":1378441549}
 
 buzzwords: |+
-  data: {"items":[{"label":"Leverage","value":3},{"label":"Paradigm shift","value":22},{"label":"Web 2.0","value":16},{"label":"Turn-key","value":10},{"label":"Pivoting","value":4},{"label":"Streamlininess","value":12},{"label":"Synergy","value":3},{"label":"Exit strategy","value":15},{"label":"Enterprise","value":8}],"id":"buzzwords","updatedAt":1377748520}
+  data: {"items":[{"label":"Synergy","value":21},{"label":"Enterprise","value":16},{"label":"Turn-key","value":25},{"label":"Web 2.0","value":24},{"label":"Leverage","value":26},{"label":"Paradigm shift","value":17},{"label":"Pivoting","value":21},{"label":"Exit strategy","value":11},{"label":"Streamlininess","value":11}],"id":"buzzwords","updatedAt":1378441549}
 
 valuation: |+
   data: {"current":65,"last":51,"id":"valuation","updatedAt":1377655205}
@@ -15,5 +15,11 @@ synergy: |+
   data: {"value":62,"id":"synergy","updatedAt":1377655205}
 
 mlb: |+
-  data: {"team":["BOS","TBR","BAL","NYY","TOR"],"wins":["78","74","70","70","59"],"losses":["55","56","60","62","74"],"gb":["--","2.5","6.5","7.5","19.0"],"id":"mlb","updatedAt":1377748519}
+  data: {"teams":["BOS","TBR","NYY","BAL","TOR"],"wins":["84","77","75","73","64"],"losses":["57","61","64","65","76"],"gbs":["--","5.5","8.0","9.5","19.5"],"id":"mlb","updatedAt":1378441545}
+
+team: |+
+  data: {"teams":["BOS","TBR"],"id":"team","updatedAt":1378440154}
+
+teams: |+
+  data: {"teams":["BOS","TBR"],"id":"teams","updatedAt":1378440262}
 
